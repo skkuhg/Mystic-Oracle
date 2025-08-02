@@ -1,0 +1,46 @@
+{
+  "name": "mystic-oracle",
+  "version": "1.0.0",
+  "description": "A mystical, atmospheric fortune telling web application with AI-powered readings and interactive cosmic experiences",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "build": "echo 'No build step required for this static site'",
+    "test": "echo 'No tests configured'",
+    "deploy": "echo 'Ready for deployment - upload all files to web server'"
+  },
+  "keywords": [
+    "fortune-telling",
+    "tarot",
+    "astrology",
+    "bazi",
+    "four-pillars",
+    "mystical",
+    "oracle",
+    "spirituality",
+    "divination",
+    "chinese-astrology"
+  ],
+  "author": "Mystic Oracle Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mystic-oracle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/mystic-oracle/issues"
+  },
+  "homepage": "https://your-username.github.io/mystic-oracle",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

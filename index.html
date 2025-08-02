@@ -442,6 +442,18 @@
             color: var(--gold-light);
         }
         
+        .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border: 1px solid #dc2626;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #b91c1c, #991b1b);
+            border-color: #b91c1c;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+        
         .reading-type-btn.active {
             background: rgba(245, 158, 11, 0.2);
             border-color: var(--gold-light);
@@ -617,6 +629,269 @@
             0%, 100% { opacity: 0.3; transform: skewX(0deg); }
             50% { opacity: 0.7; transform: skewX(2deg); }
         }
+        
+        /* Bazi Master Styles */
+        .bazi-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .bazi-form-container {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid var(--gold-light);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .bazi-label {
+            display: block;
+            color: var(--gold-light);
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .bazi-input {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--text-secondary);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .bazi-input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .bazi-btn {
+            width: 100%;
+            margin-top: 20px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: var(--midnight-dark);
+            font-size: 1.1rem;
+            padding: 15px;
+        }
+        
+        /* Bazi Results Styles */
+        .bazi-results {
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid var(--gold-light);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .pillars-display h3, .elements-analysis h3 {
+            color: var(--gold-light);
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .pillar-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--text-secondary);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            border-color: var(--gold-light);
+            transform: translateY(-5px);
+        }
+        
+        .pillar-title {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .pillar-characters {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        
+        .pillar-element {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+        
+        /* Avatar Container Styles */
+        .avatar-container {
+            background: rgba(17, 24, 39, 0.9);
+            border: 1px solid var(--gold-light);
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+            min-height: 500px;
+        }
+        
+        .avatar-scene {
+            background: radial-gradient(circle, rgba(30, 41, 59, 0.8) 0%, rgba(17, 24, 39, 0.9) 100%);
+            border: 1px solid var(--text-secondary);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .avatar-placeholder {
+            text-align: center;
+        }
+        
+        .avatar-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Chat Interface Styles */
+        .chat-interface {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            max-height: 400px;
+            border: 1px solid var(--text-secondary);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: rgba(30, 41, 59, 0.5);
+        }
+        
+        .chat-message {
+            display: flex;
+            margin-bottom: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .bot-message {
+            justify-content: flex-start;
+        }
+        
+        .user-message {
+            justify-content: flex-end;
+        }
+        
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .user-message .message-avatar {
+            background: var(--purple-light);
+            margin-right: 0;
+            margin-left: 10px;
+            order: 2;
+        }
+        
+        .message-content {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--text-secondary);
+            border-radius: 15px;
+            padding: 12px 16px;
+            max-width: 70%;
+            color: var(--text-primary);
+        }
+        
+        .user-message .message-content {
+            background: rgba(147, 51, 234, 0.2);
+            border-color: var(--purple-light);
+        }
+        
+        .chat-input-container {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--text-secondary);
+            border-radius: 25px;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+        
+        .chat-send-btn, .voice-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: var(--midnight-dark);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-send-btn:hover, .voice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        .voice-btn.recording {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            animation: pulse 1s infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .avatar-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .pillars-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .chat-messages {
+                max-height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -633,6 +908,7 @@
         <nav>
             <button class="nav-btn" onclick="showSection('home')">🏠 Home</button>
             <button class="nav-btn" onclick="showSection('history')">📜 History</button>
+            <button class="nav-btn" onclick="showSection('bazi')">🔮 Bazi Master</button>
             <button class="nav-btn" onclick="showSection('settings')">⚙️ Settings</button>
             <button class="nav-btn" onclick="showSection('achievements')">🏆 Progress</button>
         </nav>
@@ -755,6 +1031,88 @@
             </div>
         </div>
         
+        <!-- Bazi Master Section -->
+        <div id="bazi" class="section">
+            <div class="bazi-container">
+                <h2 style="font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px;">🔮 Bazi Master - Four Pillars of Destiny</h2>
+                
+                <!-- Birth Data Form -->
+                <div class="bazi-form-container" id="baziForm">
+                    <div class="form-group">
+                        <label class="bazi-label">📅 Date of Birth</label>
+                        <input type="date" class="bazi-input" id="baziDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="bazi-label">🕐 Time of Birth</label>
+                        <input type="time" class="bazi-input" id="baziTime" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="bazi-label">⚧ Gender</label>
+                        <select class="bazi-input" id="baziGender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male 🚹</option>
+                            <option value="female">Female 🚺</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="bazi-label">🌍 Birth Location/Timezone</label>
+                        <input type="text" class="bazi-input" id="baziLocation" placeholder="City, Country or Timezone (e.g., UTC+8)" required>
+                    </div>
+                    
+                    <button class="btn bazi-btn" onclick="startBaziReading()">🔮 Begin Bazi Analysis</button>
+                    <button class="btn btn-secondary" onclick="clearBaziForm()" style="width: 100%; margin-top: 10px;">🗑️ Clear All Information</button>
+                </div>
+                
+                <!-- Bazi Results Display -->
+                <div class="bazi-results" id="baziResults" style="display: none;">
+                    <div class="pillars-display">
+                        <h3>Your Four Pillars (四柱八字)</h3>
+                        <div class="pillars-grid" id="pillarsGrid">
+                            <!-- Pillars will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <div class="elements-analysis">
+                        <h3>Five Elements Analysis (五行分析)</h3>
+                        <div class="elements-chart" id="elementsChart">
+                            <!-- Elements chart will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3D Avatar Chatbot Container -->
+                <div class="avatar-container" id="avatarContainer" style="display: none;">
+                    <div class="avatar-scene" id="avatarScene">
+                        <!-- 3D Avatar will be rendered here -->
+                        <div class="avatar-placeholder">
+                            <div class="avatar-icon">🧙‍♂️</div>
+                            <p>Master Chen - Bazi Expert</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-interface">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="chat-message bot-message">
+                                <div class="message-avatar">🧙‍♂️</div>
+                                <div class="message-content">
+                                    <p>Greetings! I am Master Chen, your personal Bazi consultant. I have analyzed your Four Pillars and am ready to answer your questions about destiny, fortune, and life guidance. What would you like to know?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <input type="text" class="chat-input" id="chatInput" placeholder="Ask about your Bazi reading..." onkeypress="handleChatKeyPress(event)">
+                            <button class="chat-send-btn" onclick="sendChatMessage()">🚀</button>
+                            <button class="voice-btn" onclick="toggleVoiceInput()" title="Voice Input">🎤</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Settings Section -->
         <div id="settings" class="section">
             <div class="settings-panel">
@@ -813,6 +1171,7 @@
                 <button class="btn" onclick="saveSettings()">💫 Save Settings</button>
                 <button class="btn btn-secondary" onclick="exportData()">📤 Export Data</button>
                 <button class="btn btn-secondary" onclick="importData()">📥 Import Data</button>
+                <button class="btn btn-danger" onclick="clearAllData()">🗑️ Clear All Data</button>
             </div>
         </div>
         
@@ -1073,6 +1432,11 @@
                 loadAchievements();
             } else if (sectionId === 'home') {
                 updateDailyWisdom();
+            } else if (sectionId === 'bazi') {
+                // Initialize Bazi section
+                document.getElementById('baziForm').style.display = 'block';
+                document.getElementById('baziResults').style.display = 'none';
+                document.getElementById('avatarContainer').style.display = 'none';
             }
             
             // Update user stats
@@ -1745,6 +2109,57 @@
             input.click();
         }
         
+        // Clear all user data
+        function clearAllData() {
+            if (confirm('⚠️ Are you sure you want to clear all your mystical data? This action cannot be undone and will remove:\n\n• All saved readings and history\n• Personal settings and profile\n• Achievements and statistics\n• API keys and preferences\n\nThis will reset the oracle to its initial state.')) {
+                try {
+                    // Clear all localStorage items
+                    const keysToRemove = [
+                        'userName', 'birthDate', 'birthTime', 'birthLocation',
+                        'openaiKey', 'tavilyKey', 'reminderTime', 'theme',
+                        'fortuneHistory', 'achievements', 'userStats',
+                        'dailyWisdom', 'lastDailyWisdom'
+                    ];
+                    
+                    keysToRemove.forEach(key => {
+                        localStorage.removeItem(key);
+                    });
+                    
+                    // Reset form inputs
+                    document.getElementById('userName').value = '';
+                    document.getElementById('birthDate').value = '';
+                    document.getElementById('birthTime').value = '';
+                    document.getElementById('birthLocation').value = '';
+                    document.getElementById('openaiKey').value = '';
+                    document.getElementById('tavilyKey').value = '';
+                    document.getElementById('reminderTime').value = '09:00';
+                    document.getElementById('theme').value = 'cosmic';
+                    
+                    // Reset global variables
+                    achievements = [];
+                    userStats = {
+                        totalReadings: 0,
+                        favoriteCategory: '',
+                        longestStreak: 0,
+                        currentStreak: 0,
+                        lastReadingDate: null
+                    };
+                    
+                    // Apply default theme
+                    applyTheme('cosmic');
+                    
+                    // Clear history display
+                    loadHistory();
+                    loadAchievements();
+                    
+                    showNotification('🧹 All data has been cleared! The oracle has been reset to its mystical origins.', 'success');
+                    
+                } catch (error) {
+                    showNotification('❌ Error clearing data. Please try again.', 'error');
+                }
+            }
+        }
+        
         // Update user stats
         function updateUserStats() {
             let stats = JSON.parse(localStorage.getItem('userStats') || '{}');
@@ -2080,6 +2495,699 @@
                 }
             `;
             document.head.appendChild(style);
+        }
+        
+        // ===== BAZI CALCULATION ENGINE =====
+        
+        // Heavenly Stems (天干) - 10 stems
+        const heavenlyStems = [
+            { chinese: '甲', pinyin: 'Jiǎ', element: 'Wood', polarity: 'Yang', english: 'Yang Wood' },
+            { chinese: '乙', pinyin: 'Yǐ', element: 'Wood', polarity: 'Yin', english: 'Yin Wood' },
+            { chinese: '丙', pinyin: 'Bǐng', element: 'Fire', polarity: 'Yang', english: 'Yang Fire' },
+            { chinese: '丁', pinyin: 'Dīng', element: 'Fire', polarity: 'Yin', english: 'Yin Fire' },
+            { chinese: '戊', pinyin: 'Wù', element: 'Earth', polarity: 'Yang', english: 'Yang Earth' },
+            { chinese: '己', pinyin: 'Jǐ', element: 'Earth', polarity: 'Yin', english: 'Yin Earth' },
+            { chinese: '庚', pinyin: 'Gēng', element: 'Metal', polarity: 'Yang', english: 'Yang Metal' },
+            { chinese: '辛', pinyin: 'Xīn', element: 'Metal', polarity: 'Yin', english: 'Yin Metal' },
+            { chinese: '壬', pinyin: 'Rén', element: 'Water', polarity: 'Yang', english: 'Yang Water' },
+            { chinese: '癸', pinyin: 'Guǐ', element: 'Water', polarity: 'Yin', english: 'Yin Water' }
+        ];
+        
+        // Earthly Branches (地支) - 12 branches
+        const earthlyBranches = [
+            { chinese: '子', pinyin: 'Zǐ', element: 'Water', animal: 'Rat', hours: '23:00-01:00' },
+            { chinese: '丑', pinyin: 'Chǒu', element: 'Earth', animal: 'Ox', hours: '01:00-03:00' },
+            { chinese: '寅', pinyin: 'Yín', element: 'Wood', animal: 'Tiger', hours: '03:00-05:00' },
+            { chinese: '卯', pinyin: 'Mǎo', element: 'Wood', animal: 'Rabbit', hours: '05:00-07:00' },
+            { chinese: '辰', pinyin: 'Chén', element: 'Earth', animal: 'Dragon', hours: '07:00-09:00' },
+            { chinese: '巳', pinyin: 'Sì', element: 'Fire', animal: 'Snake', hours: '09:00-11:00' },
+            { chinese: '午', pinyin: 'Wǔ', element: 'Fire', animal: 'Horse', hours: '11:00-13:00' },
+            { chinese: '未', pinyin: 'Wèi', element: 'Earth', animal: 'Goat', hours: '13:00-15:00' },
+            { chinese: '申', pinyin: 'Shēn', element: 'Metal', animal: 'Monkey', hours: '15:00-17:00' },
+            { chinese: '酉', pinyin: 'Yǒu', element: 'Metal', animal: 'Rooster', hours: '17:00-19:00' },
+            { chinese: '戌', pinyin: 'Xū', element: 'Earth', animal: 'Dog', hours: '19:00-21:00' },
+            { chinese: '亥', pinyin: 'Hài', element: 'Water', animal: 'Pig', hours: '21:00-23:00' }
+        ];
+        
+        // Global variable to store current Bazi reading
+        let currentBaziReading = null;
+        let isVoiceRecording = false;
+        
+        // Convert Gregorian to Chinese Solar Calendar and calculate Bazi
+        function calculateBazi(year, month, day, hour, gender) {
+            // Solar term adjustments for accurate Chinese calendar conversion
+            const solarTermDates = getSolarTermDates(year);
+            
+            // Calculate year pillar
+            const yearPillarIndex = (year - 4) % 60;
+            const yearStem = heavenlyStems[yearPillarIndex % 10];
+            const yearBranch = earthlyBranches[yearPillarIndex % 12];
+            
+            // Calculate month pillar (based on solar terms)
+            const monthPillarIndex = calculateMonthPillar(year, month, day);
+            const monthStem = heavenlyStems[monthPillarIndex % 10];
+            const monthBranch = earthlyBranches[monthPillarIndex % 12];
+            
+            // Calculate day pillar (day count from reference date)
+            const dayPillarIndex = calculateDayPillar(year, month, day);
+            const dayStem = heavenlyStems[dayPillarIndex % 10];
+            const dayBranch = earthlyBranches[dayPillarIndex % 12];
+            
+            // Calculate hour pillar
+            const hourPillarIndex = calculateHourPillar(hour, dayPillarIndex);
+            const hourStem = heavenlyStems[hourPillarIndex % 10];
+            const hourBranch = earthlyBranches[hourPillarIndex % 12];
+            
+            // Calculate elements distribution
+            const elements = calculateElements([yearStem, monthStem, dayStem, hourStem], [yearBranch, monthBranch, dayBranch, hourBranch]);
+            
+            // Determine Day Master (日主)
+            const dayMaster = dayStem;
+            
+            // Calculate Ten Gods (十神)
+            const tenGods = calculateTenGods(dayMaster, [yearStem, monthStem, dayStem, hourStem], gender);
+            
+            // Calculate luck pillars (simplified for 10 years)
+            const luckPillars = calculateLuckPillars(year, gender, monthPillarIndex);
+            
+            return {
+                pillars: {
+                    year: { stem: yearStem, branch: yearBranch, title: 'Year (年柱)' },
+                    month: { stem: monthStem, branch: monthBranch, title: 'Month (月柱)' },
+                    day: { stem: dayStem, branch: dayBranch, title: 'Day (日柱)' },
+                    hour: { stem: hourStem, branch: hourBranch, title: 'Hour (时柱)' }
+                },
+                dayMaster: dayMaster,
+                elements: elements,
+                tenGods: tenGods,
+                luckPillars: luckPillars,
+                birthData: { year, month, day, hour, gender }
+            };
+        }
+        
+        // Calculate month pillar based on solar terms
+        function calculateMonthPillar(year, month, day) {
+            const monthStems = [2, 4, 6, 8, 10, 0, 2, 4, 6, 8, 10, 0]; // Base month stem cycle
+            const yearStemIndex = (year - 4) % 10;
+            const monthStemOffset = Math.floor(yearStemIndex / 2) * 2;
+            return (monthStems[month - 1] + monthStemOffset) % 10 + (month - 1) * 10;
+        }
+        
+        // Calculate day pillar using day count from reference
+        function calculateDayPillar(year, month, day) {
+            const referenceDate = new Date(1900, 0, 1); // Reference: Jan 1, 1900
+            const targetDate = new Date(year, month - 1, day);
+            const daysDiff = Math.floor((targetDate - referenceDate) / (1000 * 60 * 60 * 24));
+            return (daysDiff + 15) % 60; // Adjust for reference day pillar
+        }
+        
+        // Calculate hour pillar
+        function calculateHourPillar(hour, dayPillarIndex) {
+            const hourBranchIndex = getHourBranch(hour);
+            const dayStemIndex = dayPillarIndex % 10;
+            const hourStemIndex = (dayStemIndex * 2 + hourBranchIndex) % 10;
+            return hourStemIndex + hourBranchIndex * 10;
+        }
+        
+        // Get hour branch index based on time
+        function getHourBranch(hour) {
+            const hourRanges = [23, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21];
+            for (let i = 0; i < hourRanges.length; i++) {
+                if (i === 0 && (hour >= 23 || hour < 1)) return 0;
+                if (i > 0 && hour >= hourRanges[i-1] && hour < hourRanges[i]) return i;
+            }
+            return 11; // Default to last hour branch
+        }
+        
+        // Calculate elements distribution
+        function calculateElements(stems, branches) {
+            const elementCount = { Wood: 0, Fire: 0, Earth: 0, Metal: 0, Water: 0 };
+            
+            // Count stem elements
+            stems.forEach(stem => {
+                elementCount[stem.element] += 2; // Stems have more weight
+            });
+            
+            // Count branch elements
+            branches.forEach(branch => {
+                elementCount[branch.element] += 1;
+            });
+            
+            // Find strongest and weakest elements
+            const sortedElements = Object.entries(elementCount).sort((a, b) => b[1] - a[1]);
+            
+            return {
+                distribution: elementCount,
+                strongest: sortedElements[0][0],
+                weakest: sortedElements[4][0],
+                missing: sortedElements.filter(([element, count]) => count === 0).map(([element]) => element)
+            };
+        }
+        
+        // Calculate Ten Gods relationships
+        function calculateTenGods(dayMaster, stems, gender) {
+            const tenGodsRelations = {
+                'Wood': { 'Wood': 'Friend', 'Fire': 'Eating God', 'Earth': 'Wealth', 'Metal': 'Officer', 'Water': 'Resource' },
+                'Fire': { 'Wood': 'Resource', 'Fire': 'Friend', 'Earth': 'Eating God', 'Metal': 'Wealth', 'Water': 'Officer' },
+                'Earth': { 'Wood': 'Officer', 'Fire': 'Resource', 'Earth': 'Friend', 'Metal': 'Eating God', 'Water': 'Wealth' },
+                'Metal': { 'Wood': 'Wealth', 'Fire': 'Officer', 'Earth': 'Resource', 'Metal': 'Friend', 'Water': 'Eating God' },
+                'Water': { 'Wood': 'Eating God', 'Fire': 'Wealth', 'Earth': 'Officer', 'Metal': 'Resource', 'Water': 'Friend' }
+            };
+            
+            return stems.map(stem => {
+                const relation = tenGodsRelations[dayMaster.element][stem.element];
+                return { stem: stem, relation: relation };
+            });
+        }
+        
+        // Calculate luck pillars (simplified)
+        function calculateLuckPillars(birthYear, gender, monthPillarIndex) {
+            const pillars = [];
+            const startAge = (gender === 'male') ? 8 : 7; // Simplified calculation
+            
+            for (let i = 0; i < 8; i++) {
+                const pillarIndex = (monthPillarIndex + i + 1) % 60;
+                const stem = heavenlyStems[pillarIndex % 10];
+                const branch = earthlyBranches[pillarIndex % 12];
+                pillars.push({
+                    age: startAge + (i * 10),
+                    years: `${startAge + (i * 10)}-${startAge + (i * 10) + 9}`,
+                    stem: stem,
+                    branch: branch
+                });
+            }
+            
+            return pillars;
+        }
+        
+        // Get solar term dates (simplified - would need full implementation)
+        function getSolarTermDates(year) {
+            // This is a simplified version. Full implementation would calculate exact solar term dates
+            return {}; // Placeholder
+        }
+        
+        // Start Bazi reading
+        async function startBaziReading() {
+            const date = document.getElementById('baziDate').value;
+            const time = document.getElementById('baziTime').value;
+            const gender = document.getElementById('baziGender').value;
+            const location = document.getElementById('baziLocation').value;
+            
+            if (!date || !time || !gender || !location) {
+                showNotification('Please fill in all birth information fields! 📋', 'error');
+                return;
+            }
+            
+            // Parse birth data
+            const [year, month, day] = date.split('-').map(Number);
+            const [hour, minute] = time.split(':').map(Number);
+            
+            // Calculate Bazi
+            showNotification('Calculating your Four Pillars of Destiny... 🔮', 'info');
+            
+            setTimeout(() => {
+                currentBaziReading = calculateBazi(year, month, day, hour, gender);
+                displayBaziResults(currentBaziReading);
+                showAvatarChatbot();
+                
+                // Save to history
+                const reading = {
+                    type: 'bazi',
+                    date: new Date().toISOString(),
+                    data: currentBaziReading,
+                    birthInfo: { date, time, gender, location }
+                };
+                
+                const history = JSON.parse(localStorage.getItem('fortuneHistory') || '[]');
+                history.unshift(reading);
+                localStorage.setItem('fortuneHistory', JSON.stringify(history.slice(0, 50)));
+                
+                showNotification('✨ Your Bazi chart has been revealed! Ask Master Chen about your destiny.', 'success');
+            }, 1500);
+        }
+        
+        // Display Bazi results
+        function displayBaziResults(baziData) {
+            const resultsDiv = document.getElementById('baziResults');
+            const pillarsGrid = document.getElementById('pillarsGrid');
+            const elementsChart = document.getElementById('elementsChart');
+            
+            // Display Four Pillars
+            pillarsGrid.innerHTML = '';
+            Object.entries(baziData.pillars).forEach(([key, pillar]) => {
+                const pillarCard = document.createElement('div');
+                pillarCard.className = 'pillar-card';
+                pillarCard.innerHTML = `
+                    <div class="pillar-title">${pillar.title}</div>
+                    <div class="pillar-characters">
+                        <div style="color: var(--gold-light);">${pillar.stem.chinese}${pillar.branch.chinese}</div>
+                    </div>
+                    <div class="pillar-element">
+                        ${pillar.stem.english}<br>
+                        ${pillar.branch.element} ${pillar.branch.animal}
+                    </div>
+                `;
+                pillarsGrid.appendChild(pillarCard);
+            });
+            
+            // Display elements analysis
+            elementsChart.innerHTML = '';
+            const elementsDiv = document.createElement('div');
+            elementsDiv.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 20px;">
+                    ${Object.entries(baziData.elements.distribution).map(([element, count]) => `
+                        <div style="text-align: center; padding: 15px; background: rgba(30, 41, 59, 0.8); border-radius: 10px;">
+                            <div style="font-size: 1.2rem; color: ${getElementColor(element)};">${getElementEmoji(element)}</div>
+                            <div style="color: var(--text-primary); margin: 5px 0;">${element}</div>
+                            <div style="color: var(--gold-light); font-weight: bold;">${count}</div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div style="text-align: center; color: var(--text-secondary);">
+                    <p><strong>Day Master:</strong> <span style="color: var(--gold-light);">${baziData.dayMaster.chinese} ${baziData.dayMaster.english}</span></p>
+                    <p><strong>Strongest Element:</strong> <span style="color: ${getElementColor(baziData.elements.strongest)};">${baziData.elements.strongest}</span></p>
+                    ${baziData.elements.missing.length > 0 ? `<p><strong>Missing Elements:</strong> <span style="color: var(--text-secondary);">${baziData.elements.missing.join(', ')}</span></p>` : ''}
+                </div>
+            `;
+            elementsChart.appendChild(elementsDiv);
+            
+            resultsDiv.style.display = 'block';
+        }
+        
+        // Get element color
+        function getElementColor(element) {
+            const colors = {
+                Wood: '#22c55e',
+                Fire: '#ef4444',
+                Earth: '#f59e0b',
+                Metal: '#d1d5db',
+                Water: '#3b82f6'
+            };
+            return colors[element] || '#9ca3af';
+        }
+        
+        // Get element emoji
+        function getElementEmoji(element) {
+            const emojis = {
+                Wood: '🌳',
+                Fire: '🔥',
+                Earth: '🌍',
+                Metal: '⚙️',
+                Water: '🌊'
+            };
+            return emojis[element] || '⭐';
+        }
+        
+        // Show avatar chatbot
+        function showAvatarChatbot() {
+            document.getElementById('avatarContainer').style.display = 'block';
+            
+            // Initialize 3D avatar (placeholder for now)
+            initializeAvatar();
+        }
+        
+        // Initialize 3D avatar (placeholder)
+        function initializeAvatar() {
+            // This would initialize a 3D avatar using Three.js or WebGL
+            // For now, we'll use the placeholder
+            const avatarScene = document.getElementById('avatarScene');
+            // Add subtle animation to the placeholder
+            const avatarIcon = avatarScene.querySelector('.avatar-icon');
+            if (avatarIcon) {
+                avatarIcon.style.animation = 'float 3s ease-in-out infinite';
+            }
+        }
+        
+        // Clear Bazi form
+        function clearBaziForm() {
+            if (confirm('⚠️ Are you sure you want to clear all birth information and results?\n\nThis will remove:\n• All birth data inputs\n• Generated Bazi chart\n• Chat conversation\n• Current reading session\n\nThis action cannot be undone.')) {
+                // Clear form inputs
+                document.getElementById('baziDate').value = '';
+                document.getElementById('baziTime').value = '';
+                document.getElementById('baziGender').value = '';
+                document.getElementById('baziLocation').value = '';
+                
+                // Hide results and chat
+                document.getElementById('baziResults').style.display = 'none';
+                document.getElementById('avatarContainer').style.display = 'none';
+                
+                // Clear chat messages (keep only the initial greeting)
+                const chatMessages = document.getElementById('chatMessages');
+                chatMessages.innerHTML = `
+                    <div class="chat-message bot-message">
+                        <div class="message-avatar">🧙‍♂️</div>
+                        <div class="message-content">
+                            <p>Greetings! I am Master Chen, your personal Bazi consultant. I have analyzed your Four Pillars and am ready to answer your questions about destiny, fortune, and life guidance. What would you like to know?</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Clear current reading data
+                currentBaziReading = null;
+                
+                // Clear chat input
+                document.getElementById('chatInput').value = '';
+                
+                // Stop any ongoing voice recording
+                if (isVoiceRecording) {
+                    stopVoiceRecording();
+                }
+                
+                showNotification('🧹 All Bazi information has been cleared! Ready for a new reading.', 'success');
+            }
+        }
+        
+        // ===== CHATBOT & VOICE FUNCTIONALITY =====
+        
+        // Chat message handling
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+        
+        // Send chat message
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || !currentBaziReading) {
+                showNotification('Please generate your Bazi reading first! 🔮', 'error');
+                return;
+            }
+            
+            // Add user message
+            addChatMessage(message, 'user');
+            input.value = '';
+            
+            // Generate bot response
+            const response = await generateBaziResponse(message, currentBaziReading);
+            setTimeout(() => {
+                addChatMessage(response, 'bot');
+                speakMessage(response);
+            }, 1000);
+        }
+        
+        // Add chat message to interface
+        function addChatMessage(message, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}-message`;
+            
+            const avatar = sender === 'bot' ? '🧙‍♂️' : '👤';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <p>${message}</p>
+                </div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Generate Bazi interpretation response
+        async function generateBaziResponse(question, baziData) {
+            const lowerQuestion = question.toLowerCase();
+            
+            // Predefined responses based on common questions
+            if (lowerQuestion.includes('day master') || lowerQuestion.includes('日主')) {
+                return `Your Day Master is ${baziData.dayMaster.chinese} (${baziData.dayMaster.english}), which represents your core essence and personality. As ${baziData.dayMaster.element} energy, you tend to be ${getElementPersonality(baziData.dayMaster.element)}. This is the foundation of your character and how you approach life's challenges.`;
+            }
+            
+            if (lowerQuestion.includes('element') || lowerQuestion.includes('五行')) {
+                const strongest = baziData.elements.strongest;
+                const missing = baziData.elements.missing;
+                let response = `Your strongest element is ${strongest} ${getElementEmoji(strongest)}, which gives you ${getElementStrengths(strongest)}. `;
+                
+                if (missing.length > 0) {
+                    response += `You're missing ${missing.join(' and ')} elements, which means you might benefit from ${getMissingElementAdvice(missing)}.`;
+                } else {
+                    response += `You have a well-balanced elemental distribution, which indicates harmony in your life force.`;
+                }
+                return response;
+            }
+            
+            if (lowerQuestion.includes('career') || lowerQuestion.includes('work') || lowerQuestion.includes('job')) {
+                return generateCareerAdvice(baziData);
+            }
+            
+            if (lowerQuestion.includes('marriage') || lowerQuestion.includes('love') || lowerQuestion.includes('relationship')) {
+                return generateRelationshipAdvice(baziData);
+            }
+            
+            if (lowerQuestion.includes('luck') || lowerQuestion.includes('fortune') || lowerQuestion.includes('future')) {
+                return generateLuckAdvice(baziData);
+            }
+            
+            if (lowerQuestion.includes('health') || lowerQuestion.includes('body')) {
+                return generateHealthAdvice(baziData);
+            }
+            
+            if (lowerQuestion.includes('compatible') || lowerQuestion.includes('match')) {
+                return `To assess compatibility, I would need the other person's birth information. Generally, as a ${baziData.dayMaster.element} Day Master, you harmonize well with ${getCompatibleElements(baziData.dayMaster.element)} energies and may find challenges with ${getConflictingElements(baziData.dayMaster.element)} types.`;
+            }
+            
+            // Default response with general Bazi insight
+            return `Based on your Four Pillars, I see that you have a ${baziData.dayMaster.element} Day Master with ${baziData.elements.strongest} as your strongest element. This combination suggests ${getGeneralInsight(baziData)}. Would you like me to elaborate on any specific aspect of your chart?`;
+        }
+        
+        // Element personality traits
+        function getElementPersonality(element) {
+            const personalities = {
+                Wood: 'naturally creative, growth-oriented, and flexible like a tree that bends but doesn\'t break',
+                Fire: 'passionate, energetic, and charismatic with natural leadership abilities',
+                Earth: 'stable, practical, and nurturing with strong supportive qualities',
+                Metal: 'precise, organized, and determined with excellent analytical skills',
+                Water: 'adaptable, intuitive, and wise with deep emotional intelligence'
+            };
+            return personalities[element] || 'balanced and harmonious';
+        }
+        
+        // Element strengths
+        function getElementStrengths(element) {
+            const strengths = {
+                Wood: 'creativity, growth potential, and adaptability',
+                Fire: 'leadership, enthusiasm, and transformative power',
+                Earth: 'stability, reliability, and nurturing abilities',
+                Metal: 'precision, determination, and analytical thinking',
+                Water: 'wisdom, intuition, and emotional depth'
+            };
+            return strengths[element] || 'unique spiritual gifts';
+        }
+        
+        // Missing element advice
+        function getMissingElementAdvice(missingElements) {
+            const advice = {
+                Wood: 'spending time in nature, practicing creativity, and embracing growth opportunities',
+                Fire: 'seeking inspiration, taking leadership roles, and adding warmth to your environment',
+                Earth: 'grounding practices, building stability, and nurturing relationships',
+                Metal: 'organizing your life, setting clear boundaries, and practicing discipline',
+                Water: 'meditation, emotional reflection, and flowing with life\'s changes'
+            };
+            
+            return missingElements.map(element => advice[element]).join(', ');
+        }
+        
+        // Generate career advice
+        function generateCareerAdvice(baziData) {
+            const dayMaster = baziData.dayMaster.element;
+            const strongest = baziData.elements.strongest;
+            
+            const careerPaths = {
+                Wood: 'creative industries, education, environmental work, or growth-focused businesses',
+                Fire: 'leadership roles, entertainment, marketing, or transformational work',
+                Earth: 'real estate, agriculture, healthcare, or supportive service industries',
+                Metal: 'finance, technology, law enforcement, or precision-based professions',
+                Water: 'research, counseling, spirituality, or flow-based creative work'
+            };
+            
+            return `With your ${dayMaster} Day Master and ${strongest} strength, you\'re naturally suited for ${careerPaths[dayMaster]}. Your current cosmic timing suggests ${getCurrentLuckPeriodAdvice(baziData)} for career development.`;
+        }
+        
+        // Generate relationship advice  
+        function generateRelationshipAdvice(baziData) {
+            const dayMaster = baziData.dayMaster.element;
+            return `As a ${dayMaster} Day Master, you bring ${getElementPersonality(dayMaster)} to relationships. You\'ll find harmony with partners who complement your energy, particularly those with ${getCompatibleElements(dayMaster)} qualities. Focus on ${getRelationshipFocus(dayMaster)} for lasting happiness.`;
+        }
+        
+        // Generate luck advice
+        function generateLuckAdvice(baziData) {
+            const luckPillars = baziData.luckPillars;
+            const currentAge = new Date().getFullYear() - baziData.birthData.year;
+            const currentPillar = luckPillars.find(pillar => currentAge >= pillar.age && currentAge < pillar.age + 10);
+            
+            if (currentPillar) {
+                return `You\'re currently in your ${currentPillar.stem.chinese}${currentPillar.branch.chinese} luck pillar (ages ${currentPillar.years}). This ${currentPillar.stem.element}-${currentPillar.branch.element} combination brings ${getLuckPillarMeaning(currentPillar)} energy to your life path.`;
+            }
+            
+            return `Your luck cycles follow the natural flow of your elemental balance. With ${baziData.elements.strongest} as your strongest element, you\'ll find your most fortunate periods align with ${baziData.elements.strongest} seasons and years.`;
+        }
+        
+        // Generate health advice
+        function generateHealthAdvice(baziData) {
+            const dayMaster = baziData.dayMaster.element;
+            const missing = baziData.elements.missing;
+            
+            let advice = `Your ${dayMaster} constitution suggests paying attention to ${getHealthFocus(dayMaster)}. `;
+            
+            if (missing.length > 0) {
+                advice += `Since you\'re missing ${missing.join(' and ')} elements, consider ${getHealthSupport(missing)} to maintain balance.`;
+            }
+            
+            return advice;
+        }
+        
+        // Helper functions for advice generation
+        function getCompatibleElements(element) {
+            const compatibility = {
+                Wood: 'Water and Fire',
+                Fire: 'Wood and Earth', 
+                Earth: 'Fire and Metal',
+                Metal: 'Earth and Water',
+                Water: 'Metal and Wood'
+            };
+            return compatibility[element] || 'complementary';
+        }
+        
+        function getConflictingElements(element) {
+            const conflicts = {
+                Wood: 'Metal',
+                Fire: 'Water',
+                Earth: 'Wood', 
+                Metal: 'Fire',
+                Water: 'Earth'
+            };
+            return conflicts[element] || 'opposing';
+        }
+        
+        function getGeneralInsight(baziData) {
+            const dayMaster = baziData.dayMaster.element;
+            const strongest = baziData.elements.strongest;
+            
+            if (dayMaster === strongest) {
+                return 'a strong, self-reinforcing energy pattern that indicates natural confidence and clear life direction';
+            } else {
+                return `an interesting dynamic where your core ${dayMaster} nature is supported by ${strongest} energy, creating unique opportunities for growth`;
+            }
+        }
+        
+        function getCurrentLuckPeriodAdvice(baziData) {
+            return 'favorable timing for new ventures and strategic planning';
+        }
+        
+        function getRelationshipFocus(element) {
+            const focus = {
+                Wood: 'growth and mutual development',
+                Fire: 'passion and shared vision',
+                Earth: 'stability and long-term commitment',
+                Metal: 'clear communication and boundaries',
+                Water: 'emotional depth and understanding'
+            };
+            return focus[element] || 'balance and harmony';
+        }
+        
+        function getLuckPillarMeaning(pillar) {
+            return `${pillar.stem.element}-${pillar.branch.element} transformative`;
+        }
+        
+        function getHealthFocus(element) {
+            const focus = {
+                Wood: 'liver health, flexibility, and stress management',
+                Fire: 'heart health, circulation, and energy balance',
+                Earth: 'digestive health, stability, and grounding',
+                Metal: 'lung health, breathing, and mental clarity',
+                Water: 'kidney health, hydration, and rest'
+            };
+            return focus[element] || 'overall balance';
+        }
+        
+        function getHealthSupport(missingElements) {
+            const support = {
+                Wood: 'green foods and outdoor activities',
+                Fire: 'warm foods and energizing practices',
+                Earth: 'grounding foods and stable routines',
+                Metal: 'white foods and breathing exercises',
+                Water: 'hydrating foods and restorative practices'
+            };
+            return missingElements.map(element => support[element]).join(', ');
+        }
+        
+        // Voice functionality
+        function speakMessage(message) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(message);
+                utterance.rate = 0.9;
+                utterance.pitch = 1.1;
+                utterance.volume = 0.8;
+                
+                // Try to use a more suitable voice
+                const voices = speechSynthesis.getVoices();
+                const preferredVoice = voices.find(voice => 
+                    voice.name.includes('Google') || 
+                    voice.name.includes('Microsoft') ||
+                    voice.lang.includes('en')
+                );
+                
+                if (preferredVoice) {
+                    utterance.voice = preferredVoice;
+                }
+                
+                speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // Voice input toggle
+        function toggleVoiceInput() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                showNotification('Voice recognition not supported in this browser! 🎤❌', 'error');
+                return;
+            }
+            
+            const voiceBtn = document.querySelector('.voice-btn');
+            
+            if (isVoiceRecording) {
+                stopVoiceRecording();
+                return;
+            }
+            
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const recognition = new SpeechRecognition();
+            
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+            
+            recognition.onstart = () => {
+                isVoiceRecording = true;
+                voiceBtn.classList.add('recording');
+                voiceBtn.innerHTML = '🛑';
+                showNotification('🎤 Listening... Speak your question!', 'info');
+            };
+            
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('chatInput').value = transcript;
+                showNotification('✨ Voice captured! Send your message.', 'success');
+            };
+            
+            recognition.onerror = (event) => {
+                showNotification(`Voice recognition error: ${event.error} 🎤❌`, 'error');
+                stopVoiceRecording();
+            };
+            
+            recognition.onend = () => {
+                stopVoiceRecording();
+            };
+            
+            recognition.start();
+        }
+        
+        function stopVoiceRecording() {
+            isVoiceRecording = false;
+            const voiceBtn = document.querySelector('.voice-btn');
+            voiceBtn.classList.remove('recording');
+            voiceBtn.innerHTML = '🎤';
         }
         
         // Initialize app
