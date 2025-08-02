@@ -1,0 +1,2123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystic Oracle - Unveil Your Destiny</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --midnight-dark: #0B1426;
+            --midnight-light: #1A2A4A;
+            --purple-dark: #2D1B69;
+            --purple-light: #4C1D95;
+            --gold-dark: #F59E0B;
+            --gold-light: #FBBF24;
+            --teal-dark: #06B6D4;
+            --teal-light: #0891B2;
+            --cosmic-black: #000814;
+            --text-primary: #E0E7FF;
+            --text-secondary: #A5B4FC;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cosmic-black);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* Animated cosmic background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, var(--midnight-dark) 0%, var(--cosmic-black) 100%);
+            z-index: -2;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Particles */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 10s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            50% { transform: translateY(-100px) translateX(50px); }
+        }
+        
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--gold-light), var(--teal-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        
+        /* Navigation */
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Main content sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Home screen */
+        .home-screen {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .crystal-ball {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            position: relative;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent),
+                        radial-gradient(circle, var(--purple-dark) 0%, var(--midnight-dark) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(77, 29, 149, 0.8),
+                        inset 0 0 30px rgba(6, 182, 212, 0.5);
+            animation: glow 3s ease-in-out infinite;
+            cursor: pointer;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 50px rgba(77, 29, 149, 0.8), inset 0 0 30px rgba(6, 182, 212, 0.5); }
+            50% { box-shadow: 0 0 80px rgba(77, 29, 149, 1), inset 0 0 50px rgba(6, 182, 212, 0.8); }
+        }
+        
+        /* Category grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, transparent 0%, var(--purple-light) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--gold-light);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+        }
+        
+        .category-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .category-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+        
+        .category-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Reading interface */
+        .reading-interface {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .card-deck {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .tarot-card {
+            width: 150px;
+            height: 250px;
+            background: linear-gradient(135deg, var(--purple-dark), var(--midnight-dark));
+            border-radius: 15px;
+            border: 2px solid var(--gold-dark);
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tarot-card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .card-back {
+            background: linear-gradient(135deg, var(--purple-dark), var(--midnight-dark));
+            border: 2px solid var(--gold-dark);
+            font-size: 2rem;
+        }
+        
+        .card-front {
+            background: linear-gradient(135deg, var(--gold-light), var(--teal-light));
+            transform: rotateY(180deg);
+            padding: 20px;
+            font-size: 1.2rem;
+            color: var(--midnight-dark);
+        }
+        
+        /* Fortune display */
+        .fortune-display {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .fortune-display.show {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        .fortune-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+        
+        .fortune-advice {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid var(--gold-light);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        /* Settings */
+        .settings-panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 40px auto;
+            backdrop-filter: blur(10px);
+        }
+        
+        .setting-group {
+            margin-bottom: 30px;
+        }
+        
+        .setting-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .setting-input {
+            width: 100%;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--gold-light);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* History */
+        .history-list {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+        
+        .history-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .history-item:hover {
+            border-color: var(--gold-light);
+            transform: translateX(10px);
+        }
+        
+        .history-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .history-fortune {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        /* Buttons */
+        .btn {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+            color: var(--midnight-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-primary);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+        }
+        
+        .reading-type-btn.active {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .pendulum {
+            width: 2px;
+            height: 100px;
+            background: var(--gold-light);
+            margin: 0 auto;
+            position: relative;
+            transform-origin: top center;
+            animation: swing 2s ease-in-out infinite;
+        }
+        
+        .pendulum::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, var(--gold-light), var(--gold-dark));
+            border-radius: 50%;
+        }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(30deg); }
+            50% { transform: rotate(-30deg); }
+        }
+        
+        /* Daily wisdom card */
+        .wisdom-card {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--gold-light);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .wisdom-title {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+        }
+        
+        /* Astrology wheel */
+        .astro-wheel {
+            width: 300px;
+            height: 300px;
+            border: 2px solid var(--gold-light);
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .zodiac-sign {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--gold-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--midnight-dark);
+        }
+        
+        /* Rune casting area */
+        .rune-area {
+            background: rgba(255, 255, 255, 0.02);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            min-height: 200px;
+            position: relative;
+        }
+        
+        .rune {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--midnight-dark);
+            border: 1px solid var(--gold-light);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            color: var(--gold-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .rune:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+        }
+        
+        /* Achievement badges */
+        .achievement {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid var(--gold-light);
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin: 5px;
+            font-size: 0.8rem;
+            color: var(--gold-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .category-grid { grid-template-columns: 1fr; }
+            nav {
+                position: static;
+                justify-content: center;
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+            .card-deck { gap: 10px; }
+            .tarot-card { width: 100px; height: 167px; }
+            .astro-wheel { width: 250px; height: 250px; }
+        }
+        
+        /* Additional mystical effects */
+        .mystical-glow {
+            animation: mysticalGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes mysticalGlow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5)); }
+            50% { filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.8)); }
+        }
+        
+        .aurora-effect {
+            background: linear-gradient(45deg,
+                transparent 0%,
+                rgba(245, 158, 11, 0.1) 25%,
+                rgba(77, 29, 149, 0.1) 50%,
+                rgba(6, 182, 212, 0.1) 75%,
+                transparent 100%);
+            animation: aurora 15s ease-in-out infinite;
+        }
+        
+        @keyframes aurora {
+            0%, 100% { opacity: 0.3; transform: skewX(0deg); }
+            50% { opacity: 0.7; transform: skewX(2deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+    <div class="stars" id="stars"></div>
+    <div id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Mystic Oracle</h1>
+            <p class="tagline">Unveil the mysteries of your destiny</p>
+        </header>
+        
+        <nav>
+            <button class="nav-btn" onclick="showSection('home')">🏠 Home</button>
+            <button class="nav-btn" onclick="showSection('history')">📜 History</button>
+            <button class="nav-btn" onclick="showSection('settings')">⚙️ Settings</button>
+            <button class="nav-btn" onclick="showSection('achievements')">🏆 Progress</button>
+        </nav>
+        
+        <!-- Home Section -->
+        <div id="home" class="section active">
+            <div class="home-screen">
+                <div class="crystal-ball mystical-glow" onclick="quickReading()"></div>
+                <p class="tagline">Choose your path to enlightenment</p>
+                
+                <!-- Daily wisdom card -->
+                <div class="wisdom-card" id="dailyWisdom">
+                    <h4 class="wisdom-title">Today's Cosmic Wisdom</h4>
+                    <p id="wisdomText">Loading daily insight...</p>
+                </div>
+                
+                <div class="category-grid">
+                    <div class="category-card" onclick="startReading('love')">
+                        <span class="category-icon">💖</span>
+                        <h3 class="category-title">Love & Relationships</h3>
+                        <p class="category-description">Discover insights about your romantic journey and connections</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="startReading('career')">
+                        <span class="category-icon">💼</span>
+                        <h3 class="category-title">Career & Success</h3>
+                        <p class="category-description">Unveil your professional path and opportunities ahead</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="startReading('life')">
+                        <span class="category-icon">🧭</span>
+                        <h3 class="category-title">Life Path & Purpose</h3>
+                        <p class="category-description">Explore your spiritual journey and life's greater meaning</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="startReading('health')">
+                        <span class="category-icon">🌸</span>
+                        <h3 class="category-title">Health & Wellness</h3>
+                        <p class="category-description">Receive guidance for your physical and mental well-being</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="startReading('finance')">
+                        <span class="category-icon">💰</span>
+                        <h3 class="category-title">Financial Fortune</h3>
+                        <p class="category-description">Uncover insights about wealth and abundance</p>
+                    </div>
+                    
+                    <div class="category-card" onclick="startReading('spiritual')">
+                        <span class="category-icon">👁️</span>
+                        <h3 class="category-title">Spiritual Growth</h3>
+                        <p class="category-description">Connect with your higher self and cosmic wisdom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reading Section -->
+        <div id="reading" class="section">
+            <div class="reading-interface">
+                <h2 style="font-family: 'Cinzel', serif; margin-bottom: 20px;" id="readingTitle">Select Your Cards</h2>
+                <p class="tagline" id="readingSubtitle">Focus your energy and choose three cards</p>
+                
+                <!-- Reading type selector -->
+                <div style="margin: 20px 0;">
+                    <button class="btn btn-secondary reading-type-btn active" onclick="setReadingType('tarot')">🃏 Tarot Cards</button>
+                    <button class="btn btn-secondary reading-type-btn" onclick="setReadingType('astrology')">⭐ Astrology</button>
+                    <button class="btn btn-secondary reading-type-btn" onclick="setReadingType('runes')">🪨 Rune Casting</button>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="pendulum"></div>
+                    <p style="margin-top: 30px; color: var(--text-secondary);">Channeling cosmic energies...</p>
+                </div>
+                
+                <!-- Tarot reading interface -->
+                <div class="card-deck" id="cardDeck">
+                    <!-- Cards will be generated here -->
+                </div>
+                
+                <!-- Astrology wheel interface -->
+                <div class="astro-wheel" id="astroWheel" style="display: none;">
+                    <div class="zodiac-sign" style="top: 10px; left: 50%; transform: translateX(-50%);">♈</div>
+                    <div class="zodiac-sign" style="top: 25px; right: 25px;">♉</div>
+                    <div class="zodiac-sign" style="top: 50%; right: 10px; transform: translateY(-50%);">♊</div>
+                    <div class="zodiac-sign" style="bottom: 25px; right: 25px;">♋</div>
+                    <div class="zodiac-sign" style="bottom: 10px; left: 50%; transform: translateX(-50%);">♌</div>
+                    <div class="zodiac-sign" style="bottom: 25px; left: 25px;">♍</div>
+                    <div class="zodiac-sign" style="top: 50%; left: 10px; transform: translateY(-50%);">♎</div>
+                    <div class="zodiac-sign" style="top: 25px; left: 25px;">♏</div>
+                    <div class="zodiac-sign" style="top: 35%; right: 35%;">♐</div>
+                    <div class="zodiac-sign" style="bottom: 35%; right: 35%;">♑</div>
+                    <div class="zodiac-sign" style="bottom: 35%; left: 35%;">♒</div>
+                    <div class="zodiac-sign" style="top: 35%; left: 35%;">♓</div>
+                </div>
+                
+                <!-- Rune casting interface -->
+                <div class="rune-area" id="runeArea" style="display: none;">
+                    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">
+                        Click to cast the runes and reveal your destiny
+                    </p>
+                    <button class="btn" onclick="castRunes()">Cast the Runes</button>
+                </div>
+                
+                <div class="fortune-display" id="fortuneDisplay">
+                    <h3 style="font-family: 'Cinzel', serif; color: var(--gold-light); margin-bottom: 20px;">Your Fortune</h3>
+                    <div class="fortune-text" id="fortuneText"></div>
+                    <div class="fortune-advice" id="fortuneAdvice"></div>
+                    <button class="btn" onclick="saveReading()">💾 Save Reading</button>
+                    <button class="btn btn-secondary" onclick="shareReading()">📱 Share</button>
+                    <button class="btn btn-secondary" onclick="showSection('home')">🔮 New Reading</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- History Section -->
+        <div id="history" class="section">
+            <h2 style="font-family: 'Cinzel', serif; text-align: center; margin-bottom: 40px;">Your Fortune History</h2>
+            <div class="history-list" id="historyList">
+                <!-- History items will be populated here -->
+            </div>
+        </div>
+        
+        <!-- Settings Section -->
+        <div id="settings" class="section">
+            <div class="settings-panel">
+                <h2 style="font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px;">Mystical Settings</h2>
+                
+                <div class="setting-group">
+                    <label class="setting-label">✨ Your Name</label>
+                    <input type="text" class="setting-input" id="userName" placeholder="Enter your mystical name">
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🌟 Birth Date</label>
+                    <input type="date" class="setting-input" id="birthDate">
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🌙 Birth Time (Optional)</label>
+                    <input type="time" class="setting-input" id="birthTime">
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🏙️ Birth Location (Optional)</label>
+                    <input type="text" class="setting-input" id="birthLocation" placeholder="City, Country">
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🤖 OpenAI API Key (Optional - for AI-powered readings)</label>
+                    <input type="password" class="setting-input" id="openaiKey" placeholder="sk-...">
+                    <small style="color: var(--text-secondary); font-size: 0.8rem;">
+                        Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank" style="color: var(--gold-light);">OpenAI Platform</a>
+                    </small>
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🔍 Tavily API Key (Optional - for cosmic insights)</label>
+                    <input type="password" class="setting-input" id="tavilyKey" placeholder="tvly-...">
+                    <small style="color: var(--text-secondary); font-size: 0.8rem;">
+                        Get your API key from <a href="https://tavily.com" target="_blank" style="color: var(--gold-light);">Tavily AI</a>
+                    </small>
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🔔 Daily Reading Reminder</label>
+                    <input type="time" class="setting-input" id="reminderTime" value="09:00">
+                </div>
+                
+                <div class="setting-group">
+                    <label class="setting-label">🎨 Preferred Theme</label>
+                    <select class="setting-input" id="theme">
+                        <option value="cosmic">🌌 Cosmic Night</option>
+                        <option value="aurora">🌈 Aurora Mystic</option>
+                        <option value="golden">✨ Golden Dreams</option>
+                    </select>
+                </div>
+                
+                <button class="btn" onclick="saveSettings()">💫 Save Settings</button>
+                <button class="btn btn-secondary" onclick="exportData()">📤 Export Data</button>
+                <button class="btn btn-secondary" onclick="importData()">📥 Import Data</button>
+            </div>
+        </div>
+        
+        <!-- Achievements Section -->
+        <div id="achievements" class="section">
+            <div class="settings-panel">
+                <h2 style="font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px;">Spiritual Achievements</h2>
+                <div id="achievementsList">
+                    <!-- Achievements will be populated here -->
+                </div>
+                
+                <h3 style="font-family: 'Cinzel', serif; margin: 30px 0 20px 0;">Reading Statistics</h3>
+                <div id="statsDisplay">
+                    <!-- Stats will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio element for ambient sounds -->
+    <audio id="ambientSound" loop>
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTuNzPLOdysFL4XK8NuIMQoTY7fp4p1MEAhBr+PtrmsTBTGP1fPTcisHJILM8d2QQAoRYrXr66hVFApGnt/yvmwgBDqOzfPQeSsFLYbJ8NuIMQoTY7Tp4p5NEA1BreLqrmwTAy+N1vPWeCsHJYPP8dyPQAkSYrPr66hWFApGnt/yv2wgBDqOzfPQeisFL43K8NuIOQoTYrXn4Z5OEQ1BruLprmwTAzCN1vPWeCsHJYPP8dyPQAkSYrTg66hWFAlEnd/yv2wgBDmMzfPReysFL43M8NuIOAoTYrPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYPP8dyPQAkRYrTg66hWFQlEnd/yv2wgBDmNzfPSeSsFL4zL8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8tuPQAkRYrPf66lWFQlFnd/yv2wgBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8tuPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8tuPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8tuPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8tuPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1fPWeCwIJYTQ8duPQAkRYbPf66lWFQlFnd/yv20gBDmNzfPReSsFL4zK8NqJOAoUYbPn4Z5PEQ1BruLprmwUAzCO1JPWOR==" type="audio/wav">
+    </audio>
+    
+    <script>
+        // Global variables
+        let currentCategory = '';
+        let selectedCards = 0;
+        let currentReading = null;
+        let currentReadingType = 'tarot';
+        let ambientSound = null;
+        let achievements = [];
+        let userStats = {
+            totalReadings: 0,
+            favoriteCategory: '',
+            longestStreak: 0,
+            currentStreak: 0,
+            lastReadingDate: null
+        };
+        
+        // Fortune database with enhanced content
+        const fortunes = {
+            love: [
+                {
+                    text: "A profound connection awaits you in the coming moon cycle. The universe is aligning to bring someone special into your orbit, or to deepen an existing bond.",
+                    advice: "Open your heart to unexpected encounters. Practice vulnerability and authentic communication. Love often arrives when we cultivate self-love first."
+                },
+                {
+                    text: "Your current relationship enters a phase of deeper understanding. The cosmic energies favor honest communication and emotional growth between you and your beloved.",
+                    advice: "Practice active listening and express your truth with courage. Create sacred space for intimate conversations. Trust is your foundation for growth."
+                },
+                {
+                    text: "Self-love emerges as your most important spiritual assignment. The cosmos asks you to nurture your own heart before seeking to fill another's.",
+                    advice: "Dedicate daily time to self-care rituals. Mirror work, journaling, and solo adventures will strengthen your relationship with yourself."
+                },
+                {
+                    text: "A past love situation finds resolution through forgiveness and release. The universe supports your healing journey and opens new romantic possibilities.",
+                    advice: "Practice forgiveness meditation. Write a letter you'll never send to release old pain. Make space for new love to enter your life."
+                },
+                {
+                    text: "Twin flame or soulmate energy approaches your sphere. This connection will challenge and transform you in the most beautiful ways.",
+                    advice: "Prepare through shadow work and self-discovery. This connection will mirror your deepest growth areas. Embrace the transformation."
+                }
+            ],
+            career: [
+                {
+                    text: "A significant opportunity manifests in your professional sphere within three lunar cycles. Your dedication and unique talents attract the recognition you deserve.",
+                    advice: "Polish your skills and expand your network. Stay alert for unexpected doors opening through casual conversations and chance encounters."
+                },
+                {
+                    text: "Creative solutions become your superpower in overcoming current workplace challenges. Your innovative thinking disrupts outdated systems and creates new pathways.",
+                    advice: "Trust your unconventional ideas and present them with confidence. Collaborate with like-minded visionaries who share your progressive outlook."
+                },
+                {
+                    text: "A period of intensive learning and skill development approaches. Investment in your education now yields exponential career advancement within the year.",
+                    advice: "Research emerging trends in your field. Seek mentorship from industry leaders. Online courses and certifications will accelerate your growth."
+                },
+                {
+                    text: "Leadership opportunities emerge from unexpected quarters. Your natural ability to inspire and guide others draws attention from decision-makers.",
+                    advice: "Step into your power and voice your vision clearly. Volunteer for challenging projects that showcase your management potential."
+                },
+                {
+                    text: "A career pivot or entirely new professional direction calls to your soul. The universe supports your transition into work that aligns with your authentic purpose.",
+                    advice: "Explore your passions through side projects. Network in new industries. Trust your intuition over external expectations about your career path."
+                }
+            ],
+            life: [
+                {
+                    text: "You stand at a cosmic crossroads where multiple timelines converge. The choice you make in the coming weeks will ripple through years of your existence.",
+                    advice: "Meditate daily on your deepest values and desires. Journal your dreams and pay attention to synchronicities. Your soul knows the way forward."
+                },
+                {
+                    text: "Your life purpose crystallizes like morning dew gathering light. The fog of uncertainty lifts to reveal your true calling and soul mission on Earth.",
+                    advice: "Notice activities that make you lose track of time. Pay attention to compliments others give you. Your gifts are more obvious than you think."
+                },
+                {
+                    text: "A transformative cycle begins, shedding old identities like a snake releasing its skin. Embrace this metamorphosis as your authentic self emerges.",
+                    advice: "Release attachments to who you used to be. Create rituals for letting go of outdated beliefs and habits. Welcome your evolved identity."
+                },
+                {
+                    text: "Ancient wisdom traditions call to you, offering keys to unlock dormant spiritual abilities and deeper understanding of your place in the cosmic web.",
+                    advice: "Study mysticism, philosophy, or indigenous wisdom traditions. Travel to sacred sites if possible. Find teachers who honor both ancient wisdom and modern insights."
+                },
+                {
+                    text: "Your life's work involves bridging different worlds - bringing light to darkness, healing to pain, or connection to isolation. You are a cosmic bridge-builder.",
+                    advice: "Develop skills in communication, healing, or teaching. Your role is to translate complex wisdom into accessible guidance for others."
+                }
+            ],
+            health: [
+                {
+                    text: "Your body temples asks for more mindful attention and reverence. Small, consistent changes now prevent larger health challenges and boost your vitality significantly.",
+                    advice: "Create morning and evening rituals that honor your body. Focus on whole foods, gentle movement, and adequate rest. Listen to your body's wisdom."
+                },
+                {
+                    text: "Mental clarity and emotional equilibrium return like dawn after a long night. The universe supports your healing journey on all levels of being.",
+                    advice: "Explore meditation, breathwork, or energy healing modalities. Spend time in nature daily. Consider working with a holistic healthcare practitioner."
+                },
+                {
+                    text: "A surge of vitality and physical strength approaches your energy field. Your cellular structure responds positively to improved lifestyle choices and spiritual practices.",
+                    advice: "Prepare through proper hydration, mineral-rich nutrition, and adequate sleep. Your body is ready to receive and integrate higher frequencies of energy."
+                },
+                {
+                    text: "Emotional healing accelerates as you address root causes rather than symptoms. Past traumas release their grip on your physical and mental wellbeing.",
+                    advice: "Consider somatic therapy, EMDR, or other trauma-informed healing modalities. Your body stores wisdom and memory - honor its intelligence."
+                },
+                {
+                    text: "Your health journey becomes a teaching tool for others. Your healing experience transforms into wisdom that helps heal your community and lineage.",
+                    advice: "Document your healing journey. Share your insights when appropriate. Your vulnerability and triumph inspire others to prioritize their own wellness."
+                }
+            ],
+            finance: [
+                {
+                    text: "Abundance flows toward you like a river finding its natural course. Multiple income streams and financial opportunities multiply through your aligned actions and positive mindset.",
+                    advice: "Stay open to unexpected money sources. Network genuinely and offer value first. Trust that the universe rewards authenticity and service to others."
+                },
+                {
+                    text: "Wise investments of your resources - time, energy, and money - yield significant returns. The seeds you plant now bloom into long-term financial security.",
+                    advice: "Research thoroughly before making decisions. Diversify your investments across multiple vehicles. Consider both traditional and alternative investment strategies."
+                },
+                {
+                    text: "Financial stability establishes itself through your consistent efforts and practical wisdom. Your relationship with money transforms from fear to empowerment.",
+                    advice: "Continue budgeting and saving practices. Invest in financial education. Consider working with a financial advisor who understands your values and goals."
+                },
+                {
+                    text: "A significant financial opportunity presents itself through your professional network or creative endeavors. Your unique skills command premium compensation.",
+                    advice: "Value your expertise appropriately. Don't undercharge for your services. Negotiate confidently and know your worth in the marketplace."
+                },
+                {
+                    text: "Generosity and financial flow create a positive cycle in your life. As you give freely of your resources, the universe multiplies your abundance exponentially.",
+                    advice: "Practice conscious giving to causes you believe in. Support others' success genuinely. Abundance shared is abundance multiplied."
+                }
+            ],
+            spiritual: [
+                {
+                    text: "Your spiritual awakening accelerates rapidly as cosmic downloads and intuitive insights flood your consciousness. The veil between dimensions grows thin for you.",
+                    advice: "Maintain a daily spiritual practice. Journal your insights and synchronicities. Ground yourself in nature to integrate higher frequency energies."
+                },
+                {
+                    text: "Ancient wisdom flows through you like water through a clear channel. You become a conduit for divine knowledge and healing energy for yourself and others.",
+                    advice: "Trust the guidance that comes during meditation and quiet reflection. Study various wisdom traditions. Share your insights when others are ready to receive them."
+                },
+                {
+                    text: "Your connection to cosmic consciousness strengthens daily. You remember your true nature as an eternal soul having a temporary human experience.",
+                    advice: "Practice presence and mindfulness throughout your day. Connect with your higher self through meditation. Remember that you are both human and divine."
+                },
+                {
+                    text: "Psychic abilities and intuitive gifts emerge or strengthen significantly. Your natural sensitivity becomes a valuable tool for navigating life and helping others.",
+                    advice: "Practice discernment with your gifts. Protect your energy through grounding and shielding techniques. Find mentors who understand your spiritual path."
+                },
+                {
+                    text: "You are called to teach or heal others through your spiritual journey. Your personal transformation becomes a beacon of hope and possibility for those still searching.",
+                    advice: "Develop your gifts through study and practice. Find your unique way of sharing wisdom. Remember that your vulnerability and authenticity are your greatest teaching tools."
+                }
+            ]
+        };
+        
+        // Daily wisdom messages
+        const dailyWisdom = [
+            "The universe conspires in your favor when you align with your highest truth.",
+            "Today's challenges are tomorrow's wisdom. Embrace the lesson within the experience.",
+            "Your intuition speaks loudest in the quiet moments between thoughts.",
+            "Every ending is a beginning in disguise. Trust the natural cycles of life.",
+            "You are exactly where you need to be on your soul's journey.",
+            "The magic you seek already exists within you. Look inward for answers.",
+            "Gratitude transforms ordinary moments into sacred experiences.",
+            "Your sensitivity is a superpower, not a weakness. Honor your empathic gifts.",
+            "The stars within you mirror the stars above. You are made of cosmic stardust.",
+            "Love is the highest frequency. Tune your heart to this divine vibration."
+        ];
+        
+        // Rune symbols and meanings
+        const runes = [
+            { symbol: "ᚠ", name: "Fehu", meaning: "Wealth, Prosperity" },
+            { symbol: "ᚢ", name: "Uruz", meaning: "Strength, Vitality" },
+            { symbol: "ᚦ", name: "Thurisaz", meaning: "Protection, Conflict" },
+            { symbol: "ᚨ", name: "Ansuz", meaning: "Communication, Wisdom" },
+            { symbol: "ᚱ", name: "Raidho", meaning: "Journey, Movement" },
+            { symbol: "ᚲ", name: "Kenaz", meaning: "Knowledge, Creativity" },
+            { symbol: "ᚷ", name: "Gebo", meaning: "Gift, Partnership" },
+            { symbol: "ᚹ", name: "Wunjo", meaning: "Joy, Harmony" },
+            { symbol: "ᚺ", name: "Hagalaz", meaning: "Change, Disruption" },
+            { symbol: "ᚾ", name: "Nauthiz", meaning: "Need, Resistance" },
+            { symbol: "ᛁ", name: "Isa", meaning: "Ice, Stillness" },
+            { symbol: "ᛃ", name: "Jera", meaning: "Harvest, Reward" }
+        ];
+        
+        // Initialize stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            starsContainer.innerHTML = '';
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            setInterval(() => {
+                if (document.querySelectorAll('.particle').length > 20) return;
+                
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 8 + 4 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = '100%';
+                particle.style.animationDuration = Math.random() * 8 + 12 + 's';
+                particlesContainer.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 20000);
+            }, 3000);
+        }
+        
+        // Show section with enhanced animations
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            const targetSection = document.getElementById(sectionId);
+            targetSection.classList.add('active');
+            
+            // Special handling for different sections
+            if (sectionId === 'history') {
+                loadHistory();
+            } else if (sectionId === 'achievements') {
+                loadAchievements();
+            } else if (sectionId === 'home') {
+                updateDailyWisdom();
+            }
+            
+            // Update user stats
+            trackSectionVisit(sectionId);
+        }
+        
+        // Update daily wisdom
+        function updateDailyWisdom() {
+            const today = new Date().toDateString();
+            const savedDate = localStorage.getItem('dailyWisdomDate');
+            
+            if (savedDate !== today) {
+                const randomWisdom = dailyWisdom[Math.floor(Math.random() * dailyWisdom.length)];
+                document.getElementById('wisdomText').textContent = randomWisdom;
+                localStorage.setItem('dailyWisdom', randomWisdom);
+                localStorage.setItem('dailyWisdomDate', today);
+            } else {
+                const savedWisdom = localStorage.getItem('dailyWisdom');
+                if (savedWisdom) {
+                    document.getElementById('wisdomText').textContent = savedWisdom;
+                }
+            }
+        }
+        
+        // Quick reading from crystal ball
+        function quickReading() {
+            const categories = ['love', 'career', 'life', 'health', 'finance', 'spiritual'];
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            startReading(randomCategory);
+        }
+        
+        // Set reading type
+        function setReadingType(type) {
+            currentReadingType = type;
+            
+            // Reset fortune display
+            document.getElementById('fortuneDisplay').classList.remove('show');
+            
+            // Hide all reading interfaces
+            document.getElementById('cardDeck').style.display = 'none';
+            document.getElementById('astroWheel').style.display = 'none';
+            document.getElementById('runeArea').style.display = 'none';
+            
+            // Update button states
+            document.querySelectorAll('.reading-type-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="setReadingType('${type}')"]`).classList.add('active');
+            
+            // Show selected interface
+            if (type === 'tarot') {
+                document.getElementById('cardDeck').style.display = 'flex';
+                document.getElementById('readingTitle').textContent = 'Select Your Cards';
+                document.getElementById('readingSubtitle').textContent = 'Focus your energy and choose three cards';
+                createTarotDeck(); // Recreate deck for new reading
+                selectedCards = 0; // Reset card selection
+            } else if (type === 'astrology') {
+                document.getElementById('astroWheel').style.display = 'block';
+                document.getElementById('readingTitle').textContent = 'Cosmic Alignment';
+                document.getElementById('readingSubtitle').textContent = 'The stars reveal your destiny';
+                // Show loading and generate fortune
+                document.getElementById('loading').classList.add('show');
+                setTimeout(() => {
+                    generateFortune().then(() => {
+                        document.getElementById('loading').classList.remove('show');
+                        document.getElementById('fortuneDisplay').classList.add('show');
+                    });
+                }, 2000);
+            } else if (type === 'runes') {
+                document.getElementById('runeArea').style.display = 'block';
+                document.getElementById('readingTitle').textContent = 'Ancient Rune Wisdom';
+                document.getElementById('readingSubtitle').textContent = 'Let the ancient stones guide you';
+                // Reset rune area
+                document.getElementById('runeArea').innerHTML = '<p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">Click to cast the runes and reveal your destiny</p><button class="btn" onclick="castRunes()">Cast the Runes</button>';
+            }
+        }
+        
+        // Start reading
+        function startReading(category) {
+            currentCategory = category;
+            selectedCards = 0;
+            showSection('reading');
+            
+            // Reset display
+            document.getElementById('fortuneDisplay').classList.remove('show');
+            setReadingType('tarot'); // Default to tarot
+            
+            // Create cards
+            createTarotDeck();
+        }
+        
+        // Create tarot deck
+        function createTarotDeck() {
+            const deck = document.getElementById('cardDeck');
+            deck.innerHTML = '';
+            
+            const cardNames = [
+                'The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor',
+                'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',
+                'Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death', 'Temperance',
+                'The Devil', 'The Tower', 'The Star', 'The Moon', 'The Sun', 'Judgement', 'The World'
+            ];
+            
+            for (let i = 0; i < 7; i++) {
+                const card = document.createElement('div');
+                card.className = 'tarot-card';
+                const randomCard = cardNames[Math.floor(Math.random() * cardNames.length)];
+                card.innerHTML = `
+                    <div class="card-face card-back">✨</div>
+                    <div class="card-face card-front">${randomCard}</div>
+                `;
+                card.onclick = () => selectCard(card, i);
+                deck.appendChild(card);
+            }
+        }
+        
+        // Select card
+        async function selectCard(card, index) {
+            if (card.classList.contains('flipped') || selectedCards >= 3) return;
+            
+            card.classList.add('flipped');
+            selectedCards++;
+            
+            // Add selection effect
+            setTimeout(() => {
+                card.style.transform = 'rotateY(180deg) scale(1.05)';
+                card.style.boxShadow = '0 20px 40px rgba(245, 158, 11, 0.6)';
+            }, 300);
+            
+            if (selectedCards === 3) {
+                // Show loading
+                document.getElementById('cardDeck').style.display = 'none';
+                document.getElementById('loading').classList.add('show');
+                
+                // Generate fortune
+                setTimeout(async () => {
+                    await generateFortune();
+                    document.getElementById('loading').classList.remove('show');
+                    document.getElementById('fortuneDisplay').classList.add('show');
+                }, 3000);
+            }
+        }
+        
+        // Cast runes
+        function castRunes() {
+            const runeArea = document.getElementById('runeArea');
+            runeArea.innerHTML = '<p style="text-align: center; color: var(--text-secondary); margin-bottom: 20px;">The runes have spoken...</p>';
+            
+            // Create scattered runes
+            for (let i = 0; i < 5; i++) {
+                const rune = document.createElement('div');
+                rune.className = 'rune';
+                const randomRune = runes[Math.floor(Math.random() * runes.length)];
+                rune.textContent = randomRune.symbol;
+                rune.title = `${randomRune.name}: ${randomRune.meaning}`;
+                rune.style.left = Math.random() * 80 + 10 + '%';
+                rune.style.top = Math.random() * 60 + 20 + '%';
+                rune.style.transform = `rotate(${Math.random() * 360}deg)`;
+                runeArea.appendChild(rune);
+            }
+            
+            // Generate fortune after runes appear
+            setTimeout(() => generateFortune(), 2000);
+        }
+        
+        // Enhanced fortune generation with AI integration
+        async function generateFortune() {
+            const userName = localStorage.getItem('userName') || 'Seeker';
+            const birthDate = localStorage.getItem('birthDate');
+            const openaiKey = localStorage.getItem('openaiKey');
+            const tavilyKey = localStorage.getItem('tavilyKey');
+            
+            let fortune;
+            let useAI = false;
+            
+            // Try AI-powered reading first
+            if (openaiKey) {
+                try {
+                    useAI = true;
+                    fortune = await generateAIFortune(userName, birthDate, openaiKey, tavilyKey);
+                } catch (error) {
+                    console.error('AI reading failed:', error);
+                    useAI = false;
+                }
+            }
+            
+            // Fall back to enhanced preset fortunes
+            if (!useAI) {
+                fortune = generateEnhancedPresetFortune(userName, birthDate);
+            }
+            
+            currentReading = {
+                category: currentCategory,
+                type: currentReadingType,
+                text: fortune.text,
+                advice: fortune.advice,
+                date: new Date().toISOString(),
+                aiGenerated: useAI
+            };
+            
+            // Display the reading with enhanced formatting
+            displayFortune(currentReading);
+            
+            // Update user stats
+            updateUserStats();
+        }
+        
+        // Generate AI-powered fortune
+        async function generateAIFortune(userName, birthDate, openaiKey, tavilyKey) {
+            let contextInfo = '';
+            
+            // Get astrological context if birth date is available
+            if (birthDate) {
+                const birthDateObj = new Date(birthDate);
+                const zodiacSign = getZodiacSign(birthDateObj);
+                contextInfo += `Born under the sign of ${zodiacSign}, `;
+            }
+            
+            // Get current cosmic events if Tavily key is available
+            if (tavilyKey) {
+                try {
+                    const cosmicContext = await fetchCosmicContext(tavilyKey);
+                    contextInfo += cosmicContext;
+                } catch (error) {
+                    console.error('Failed to fetch cosmic context:', error);
+                }
+            }
+            
+            const prompt = `You are an ancient mystical oracle with profound wisdom. Create a deeply personalized ${currentCategory} reading for ${userName}. ${contextInfo}
+            
+            The reading should be:
+            - Poetic and mystical in tone
+            - Specific to ${currentCategory} concerns
+            - Positive but realistic
+            - Include metaphorical language and cosmic imagery
+            - Provide actionable spiritual guidance
+            - Be approximately 100-150 words
+            
+            Format your response as a JSON object with 'text' and 'advice' fields.`;
+            
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${openaiKey}`
+                },
+                body: JSON.stringify({
+                    model: 'gpt-4o-mini',
+                    messages: [{
+                        role: 'system',
+                        content: 'You are a mystical oracle. Always respond with valid JSON containing "text" and "advice" fields.'
+                    }, {
+                        role: 'user',
+                        content: prompt
+                    }],
+                    temperature: 0.9,
+                    max_tokens: 300
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`OpenAI API error: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            const aiResponse = data.choices[0].message.content;
+            
+            try {
+                return JSON.parse(aiResponse);
+            } catch (parseError) {
+                // If JSON parsing fails, extract text manually
+                return {
+                    text: aiResponse,
+                    advice: "Trust in the cosmic wisdom revealed to you through this AI-channeled reading."
+                };
+            }
+        }
+        
+        // Fetch cosmic context using Tavily API
+        async function fetchCosmicContext(tavilyKey) {
+            try {
+                const response = await fetch('https://api.tavily.com/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${tavilyKey}`
+                    },
+                    body: JSON.stringify({
+                        query: 'current moon phase astrological events cosmic significance today',
+                        search_depth: 'basic',
+                        max_results: 3
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const results = data.results || [];
+                    if (results.length > 0) {
+                        return `Current cosmic influences include: ${results[0].content.substring(0, 200)}...`;
+                    }
+                }
+            } catch (error) {
+                console.error('Tavily API error:', error);
+            }
+            return '';
+        }
+        
+        // Get zodiac sign from birth date
+        function getZodiacSign(birthDate) {
+            const month = birthDate.getMonth() + 1;
+            const day = birthDate.getDate();
+            
+            const signs = [
+                { name: 'Capricorn', start: [12, 22], end: [1, 19] },
+                { name: 'Aquarius', start: [1, 20], end: [2, 18] },
+                { name: 'Pisces', start: [2, 19], end: [3, 20] },
+                { name: 'Aries', start: [3, 21], end: [4, 19] },
+                { name: 'Taurus', start: [4, 20], end: [5, 20] },
+                { name: 'Gemini', start: [5, 21], end: [6, 20] },
+                { name: 'Cancer', start: [6, 21], end: [7, 22] },
+                { name: 'Leo', start: [7, 23], end: [8, 22] },
+                { name: 'Virgo', start: [8, 23], end: [9, 22] },
+                { name: 'Libra', start: [9, 23], end: [10, 22] },
+                { name: 'Scorpio', start: [10, 23], end: [11, 21] },
+                { name: 'Sagittarius', start: [11, 22], end: [12, 21] }
+            ];
+            
+            for (const sign of signs) {
+                const [startMonth, startDay] = sign.start;
+                const [endMonth, endDay] = sign.end;
+                
+                if (
+                    (month === startMonth && day >= startDay) ||
+                    (month === endMonth && day <= endDay) ||
+                    (startMonth > endMonth && (month === startMonth || month === endMonth))
+                ) {
+                    return sign.name;
+                }
+            }
+            
+            return 'Unknown';
+        }
+        
+        // Generate enhanced preset fortune
+        function generateEnhancedPresetFortune(userName, birthDate) {
+            const categoryFortunes = fortunes[currentCategory];
+            const baseFortune = categoryFortunes[Math.floor(Math.random() * categoryFortunes.length)];
+            
+            // Personalize the fortune
+            let personalizedText = baseFortune.text;
+            let personalizedAdvice = baseFortune.advice;
+            
+            // Add astrological context if birth date is available
+            if (birthDate) {
+                const zodiacSign = getZodiacSign(new Date(birthDate));
+                personalizedText = `As a ${zodiacSign}, ${personalizedText.toLowerCase()}`;
+            }
+            
+            // Add moon phase context
+            const moonPhase = getMoonPhase();
+            personalizedAdvice += ` The current ${moonPhase.toLowerCase()} supports your intentions.`;
+            
+            return {
+                text: personalizedText,
+                advice: personalizedAdvice
+            };
+        }
+        
+        // Display fortune with enhanced formatting
+        function displayFortune(reading) {
+            const fortuneText = document.getElementById('fortuneText');
+            const fortuneAdvice = document.getElementById('fortuneAdvice');
+            
+            // Type out the fortune text
+            typeWriterEffect(fortuneText, `${localStorage.getItem('userName') || 'Dear Seeker'}, ${reading.text}`, 50);
+            
+            setTimeout(() => {
+                fortuneAdvice.innerHTML = `
+                    <strong>🌟 Cosmic Guidance:</strong> ${reading.advice}
+                    <br><br>
+                    <em style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Reading Type: ${reading.type} • ${reading.aiGenerated ? 'AI-Enhanced' : 'Traditional'} • ${new Date(reading.date).toLocaleDateString()}
+                    </em>
+                `;
+            }, 2000);
+        }
+        
+        // Typewriter effect
+        function typeWriterEffect(element, text, delay) {
+            element.innerHTML = '';
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, delay);
+                }
+            }
+            type();
+        }
+        
+        // Save reading with achievements check
+        function saveReading() {
+            if (!currentReading) return;
+            
+            let history = JSON.parse(localStorage.getItem('fortuneHistory') || '[]');
+            history.unshift(currentReading);
+            
+            // Keep only last 100 readings
+            if (history.length > 100) {
+                history = history.slice(0, 100);
+            }
+            
+            localStorage.setItem('fortuneHistory', JSON.stringify(history));
+            
+            // Check for achievements
+            checkAchievements();
+            
+            // Show success message
+            showNotification('Reading saved to your cosmic journal! ✨', 'success');
+        }
+        
+        // Share reading
+        function shareReading() {
+            if (!currentReading) return;
+            
+            const shareText = `🔮 My Mystic Oracle Reading:\n\n"${currentReading.text}"\n\n💫 Guidance: ${currentReading.advice}\n\n#MysticOracle #Fortune #Spiritual`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Mystic Oracle Reading',
+                    text: shareText
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showNotification('Reading copied to clipboard! Share your cosmic wisdom! 📱', 'success');
+                });
+            }
+        }
+        
+        // Load history with enhanced display
+        function loadHistory() {
+            const historyList = document.getElementById('historyList');
+            const history = JSON.parse(localStorage.getItem('fortuneHistory') || '[]');
+            
+            if (history.length === 0) {
+                historyList.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                        <h3>📜 No readings yet</h3>
+                        <p>Your cosmic journey awaits! Create your first reading to begin building your spiritual archive.</p>
+                        <button class="btn" onclick="showSection('home')">Start Your Journey</button>
+                    </div>
+                `;
+                return;
+            }
+            
+            historyList.innerHTML = history.map((reading, index) => `
+                <div class="history-item" onclick="expandReading(${index})">
+                    <div class="history-date">
+                        ${new Date(reading.date).toLocaleDateString(undefined, { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })} 
+                        - ${getCategoryEmoji(reading.category)} ${reading.category.toUpperCase()}
+                        ${reading.aiGenerated ? '🤖' : '🔮'} ${reading.type || 'tarot'}
+                    </div>
+                    <div class="history-fortune">${reading.text.substring(0, 200)}${reading.text.length > 200 ? '...' : ''}</div>
+                    <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-secondary);">
+                        Click to expand full reading
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Expand reading details
+        function expandReading(index) {
+            const history = JSON.parse(localStorage.getItem('fortuneHistory') || '[]');
+            const reading = history[index];
+            
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                background: rgba(0, 0, 0, 0.8); z-index: 1000; 
+                display: flex; align-items: center; justify-content: center;
+                backdrop-filter: blur(10px);
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: var(--midnight-dark); border: 1px solid var(--gold-light); 
+                           border-radius: 20px; padding: 40px; max-width: 600px; max-height: 80vh; 
+                           overflow-y: auto; position: relative;">
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="position: absolute; top: 15px; right: 20px; background: none; 
+                                   border: none; color: var(--text-secondary); font-size: 1.5rem; 
+                                   cursor: pointer;">×</button>
+                    <h3 style="color: var(--gold-light); margin-bottom: 20px; font-family: 'Cinzel', serif;">
+                        ${getCategoryEmoji(reading.category)} ${reading.category.toUpperCase()} Reading
+                    </h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">
+                        ${new Date(reading.date).toLocaleDateString(undefined, { 
+                            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
+                            hour: '2-digit', minute: '2-digit' 
+                        })}
+                        • ${reading.aiGenerated ? 'AI-Enhanced' : 'Traditional'} ${reading.type || 'tarot'} Reading
+                    </p>
+                    <div style="color: var(--text-primary); line-height: 1.6; margin-bottom: 20px; 
+                                font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">
+                        ${reading.text}
+                    </div>
+                    <div style="background: rgba(245, 158, 11, 0.1); border-left: 3px solid var(--gold-light); 
+                                padding: 20px; border-radius: 10px;">
+                        <strong>🌟 Cosmic Guidance:</strong> ${reading.advice}
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        // Get category emoji
+        function getCategoryEmoji(category) {
+            const emojis = {
+                love: '💖',
+                career: '💼',
+                life: '🧭',
+                health: '🌸',
+                finance: '💰',
+                spiritual: '👁️'
+            };
+            return emojis[category] || '✨';
+        }
+        
+        // Save settings with validation
+        function saveSettings() {
+            const settings = {
+                userName: document.getElementById('userName').value,
+                birthDate: document.getElementById('birthDate').value,
+                birthTime: document.getElementById('birthTime').value,
+                birthLocation: document.getElementById('birthLocation').value,
+                openaiKey: document.getElementById('openaiKey').value,
+                tavilyKey: document.getElementById('tavilyKey').value,
+                reminderTime: document.getElementById('reminderTime').value,
+                theme: document.getElementById('theme').value
+            };
+            
+            // Save each setting
+            Object.entries(settings).forEach(([key, value]) => {
+                if (value) localStorage.setItem(key, value);
+            });
+            
+            // Apply theme if changed
+            if (settings.theme) {
+                applyTheme(settings.theme);
+            }
+            
+            showNotification('Settings saved! Your cosmic profile has been updated. ✨', 'success');
+        }
+        
+        // Load settings on page load
+        function loadSettings() {
+            const settings = ['userName', 'birthDate', 'birthTime', 'birthLocation', 'openaiKey', 'tavilyKey', 'reminderTime', 'theme'];
+            
+            settings.forEach(setting => {
+                const value = localStorage.getItem(setting);
+                const element = document.getElementById(setting);
+                if (value && element) {
+                    element.value = value;
+                }
+            });
+            
+            // Apply saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+        }
+        
+        // Apply theme
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            
+            switch (theme) {
+                case 'aurora':
+                    root.style.setProperty('--cosmic-black', '#001122');
+                    root.style.setProperty('--midnight-dark', '#002244');
+                    break;
+                case 'golden':
+                    root.style.setProperty('--cosmic-black', '#1a1106');
+                    root.style.setProperty('--midnight-dark', '#2d1f0a');
+                    break;
+                default:
+                    // Reset to cosmic theme
+                    root.style.setProperty('--cosmic-black', '#000814');
+                    root.style.setProperty('--midnight-dark', '#0B1426');
+            }
+        }
+        
+        // Export data
+        function exportData() {
+            const data = {
+                history: JSON.parse(localStorage.getItem('fortuneHistory') || '[]'),
+                settings: {
+                    userName: localStorage.getItem('userName'),
+                    birthDate: localStorage.getItem('birthDate'),
+                    birthTime: localStorage.getItem('birthTime'),
+                    birthLocation: localStorage.getItem('birthLocation'),
+                    reminderTime: localStorage.getItem('reminderTime'),
+                    theme: localStorage.getItem('theme')
+                },
+                achievements: JSON.parse(localStorage.getItem('achievements') || '[]'),
+                stats: JSON.parse(localStorage.getItem('userStats') || '{}'),
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `mystic-oracle-data-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showNotification('Your cosmic data has been exported! 📤', 'success');
+        }
+        
+        // Import data
+        function importData() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            
+                            // Validate data structure
+                            if (data.history && Array.isArray(data.history)) {
+                                localStorage.setItem('fortuneHistory', JSON.stringify(data.history));
+                            }
+                            
+                            if (data.settings) {
+                                Object.entries(data.settings).forEach(([key, value]) => {
+                                    if (value) localStorage.setItem(key, value);
+                                });
+                            }
+                            
+                            if (data.achievements) {
+                                localStorage.setItem('achievements', JSON.stringify(data.achievements));
+                            }
+                            
+                            if (data.stats) {
+                                localStorage.setItem('userStats', JSON.stringify(data.stats));
+                            }
+                            
+                            showNotification('Your cosmic data has been imported successfully! 📥', 'success');
+                            loadSettings();
+                            
+                        } catch (error) {
+                            showNotification('Error importing data. Please check your file format. ❌', 'error');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+        
+        // Update user stats
+        function updateUserStats() {
+            let stats = JSON.parse(localStorage.getItem('userStats') || '{}');
+            
+            stats.totalReadings = (stats.totalReadings || 0) + 1;
+            
+            // Update favorite category
+            const categoryCount = stats.categoryCount || {};
+            categoryCount[currentCategory] = (categoryCount[currentCategory] || 0) + 1;
+            stats.categoryCount = categoryCount;
+            
+            // Find favorite category
+            stats.favoriteCategory = Object.keys(categoryCount).reduce((a, b) => 
+                categoryCount[a] > categoryCount[b] ? a : b
+            );
+            
+            // Update reading streak
+            const today = new Date().toDateString();
+            const lastReading = stats.lastReadingDate;
+            
+            if (lastReading === today) {
+                // Same day, don't update streak
+            } else if (lastReading === new Date(Date.now() - 86400000).toDateString()) {
+                // Yesterday, continue streak
+                stats.currentStreak = (stats.currentStreak || 0) + 1;
+            } else {
+                // Gap in readings, reset streak
+                stats.currentStreak = 1;
+            }
+            
+            stats.longestStreak = Math.max(stats.longestStreak || 0, stats.currentStreak || 0);
+            stats.lastReadingDate = today;
+            
+            localStorage.setItem('userStats', JSON.stringify(stats));
+            userStats = stats;
+        }
+        
+        // Track section visits
+        function trackSectionVisit(section) {
+            let visits = JSON.parse(localStorage.getItem('sectionVisits') || '{}');
+            visits[section] = (visits[section] || 0) + 1;
+            localStorage.setItem('sectionVisits', JSON.stringify(visits));
+        }
+        
+        // Check and award achievements
+        function checkAchievements() {
+            const stats = JSON.parse(localStorage.getItem('userStats') || '{}');
+            let achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+            
+            const possibleAchievements = [
+                { id: 'first_reading', name: 'Cosmic Initiate', description: 'Complete your first reading', condition: () => stats.totalReadings >= 1 },
+                { id: 'ten_readings', name: 'Spiritual Seeker', description: 'Complete 10 readings', condition: () => stats.totalReadings >= 10 },
+                { id: 'fifty_readings', name: 'Mystic Scholar', description: 'Complete 50 readings', condition: () => stats.totalReadings >= 50 },
+                { id: 'hundred_readings', name: 'Oracle Master', description: 'Complete 100 readings', condition: () => stats.totalReadings >= 100 },
+                { id: 'week_streak', name: 'Daily Devotee', description: 'Read for 7 consecutive days', condition: () => stats.currentStreak >= 7 },
+                { id: 'month_streak', name: 'Cosmic Constant', description: 'Read for 30 consecutive days', condition: () => stats.currentStreak >= 30 },
+                { id: 'all_categories', name: 'Universal Explorer', description: 'Try all reading categories', condition: () => Object.keys(stats.categoryCount || {}).length >= 6 },
+                { id: 'ai_user', name: 'Tech Mystic', description: 'Use AI-powered readings', condition: () => localStorage.getItem('openaiKey') }
+            ];
+            
+            possibleAchievements.forEach(achievement => {
+                if (!achievements.find(a => a.id === achievement.id) && achievement.condition()) {
+                    achievements.push({
+                        ...achievement,
+                        earnedDate: new Date().toISOString()
+                    });
+                    showNotification(`🏆 Achievement Unlocked: ${achievement.name}!`, 'achievement');
+                }
+            });
+            
+            localStorage.setItem('achievements', JSON.stringify(achievements));
+        }
+        
+        // Load achievements
+        function loadAchievements() {
+            const achievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+            const stats = JSON.parse(localStorage.getItem('userStats') || '{}');
+            
+            const achievementsList = document.getElementById('achievementsList');
+            const statsDisplay = document.getElementById('statsDisplay');
+            
+            // Display achievements
+            if (achievements.length > 0) {
+                achievementsList.innerHTML = achievements.map(achievement => `
+                    <div class="achievement">
+                        🏆 ${achievement.name} - ${achievement.description}
+                        <br><small>Earned: ${new Date(achievement.earnedDate).toLocaleDateString()}</small>
+                    </div>
+                `).join('');
+            } else {
+                achievementsList.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Complete readings to unlock achievements!</p>';
+            }
+            
+            // Display stats
+            statsDisplay.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <h4 style="color: var(--gold-light);">Total Readings</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">${stats.totalReadings || 0}</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <h4 style="color: var(--gold-light);">Current Streak</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">${stats.currentStreak || 0} days</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <h4 style="color: var(--gold-light);">Longest Streak</h4>
+                        <p style="font-size: 2rem; font-weight: bold;">${stats.longestStreak || 0} days</p>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        <h4 style="color: var(--gold-light);">Favorite Category</h4>
+                        <p style="font-size: 1.5rem; font-weight: bold;">${getCategoryEmoji(stats.favoriteCategory)} ${stats.favoriteCategory || 'None yet'}</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Show notification
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed; top: 20px; right: 20px; z-index: 10000;
+                background: ${type === 'error' ? 'rgba(220, 38, 38, 0.9)' : 
+                           type === 'achievement' ? 'rgba(245, 158, 11, 0.9)' : 
+                           'rgba(6, 182, 212, 0.9)'};
+                color: white; padding: 15px 25px; border-radius: 10px;
+                backdrop-filter: blur(10px); animation: slideIn 0.3s ease;
+                max-width: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 4000);
+        }
+        
+        // Get moon phase
+        function getMoonPhase() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1;
+            const day = today.getDate();
+            
+            // Simple moon phase calculation
+            let phase = ((year + month + day) % 30) / 30;
+            
+            if (phase < 0.03) return '🌑 New Moon';
+            else if (phase < 0.22) return '🌒 Waxing Crescent';
+            else if (phase < 0.28) return '🌓 First Quarter';
+            else if (phase < 0.47) return '🌔 Waxing Gibbous';
+            else if (phase < 0.53) return '🌕 Full Moon';
+            else if (phase < 0.72) return '🌖 Waning Gibbous';
+            else if (phase < 0.78) return '🌗 Last Quarter';
+            else if (phase < 0.97) return '🌘 Waning Crescent';
+            else return '🌑 New Moon';
+        }
+        
+        // Add ambient sound toggle
+        function createSoundToggle() {
+            const soundToggle = document.createElement('button');
+            soundToggle.className = 'nav-btn';
+            soundToggle.innerHTML = '🔇 Sound';
+            soundToggle.style.cssText = 'position: fixed; bottom: 20px; right: 20px; z-index: 1000;';
+            soundToggle.onclick = toggleSound;
+            document.body.appendChild(soundToggle);
+        }
+        
+        function toggleSound() {
+            const soundToggle = document.querySelector('[onclick="toggleSound()"]');
+            
+            if (!ambientSound) {
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(174, audioContext.currentTime); // Solfeggio frequency
+                    gainNode.gain.setValueAtTime(0.03, audioContext.currentTime);
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+                    
+                    oscillator.start();
+                    ambientSound = { oscillator, gainNode, audioContext };
+                    soundToggle.innerHTML = '🔊 Sound';
+                } catch (error) {
+                    console.error('Audio context not supported:', error);
+                }
+            } else {
+                ambientSound.oscillator.stop();
+                ambientSound = null;
+                soundToggle.innerHTML = '🔇 Sound';
+            }
+        }
+        
+        // Create moon phase display
+        function createMoonPhaseDisplay() {
+            const moonPhaseDisplay = document.createElement('div');
+            moonPhaseDisplay.style.cssText = `
+                position: fixed; bottom: 20px; left: 20px; 
+                color: var(--text-secondary); font-size: 0.9rem;
+                background: rgba(255,255,255,0.05); padding: 10px 15px;
+                border-radius: 20px; backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.1); z-index: 1000;
+            `;
+            moonPhaseDisplay.textContent = getMoonPhase();
+            document.body.appendChild(moonPhaseDisplay);
+            
+            // Update moon phase daily
+            setInterval(() => {
+                moonPhaseDisplay.textContent = getMoonPhase();
+            }, 86400000);
+        }
+        
+        // Add keyboard navigation
+        function setupKeyboardNavigation() {
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    // Close modals or go to home
+                    const modals = document.querySelectorAll('[style*="position: fixed"]');
+                    if (modals.length === 0) {
+                        showSection('home');
+                    }
+                } else if (e.key === '1') {
+                    showSection('home');
+                } else if (e.key === '2') {
+                    showSection('history');
+                } else if (e.key === '3') {
+                    showSection('settings');
+                } else if (e.key === '4') {
+                    showSection('achievements');
+                }
+            });
+        }
+        
+        // Add touch gestures for mobile
+        function setupTouchGestures() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            document.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const threshold = 100;
+                if (touchEndX < touchStartX - threshold) {
+                    // Swiped left - next section
+                    const sections = ['home', 'history', 'settings', 'achievements'];
+                    const currentSection = document.querySelector('.section.active').id;
+                    const currentIndex = sections.indexOf(currentSection);
+                    const nextIndex = (currentIndex + 1) % sections.length;
+                    showSection(sections[nextIndex]);
+                }
+                
+                if (touchEndX > touchStartX + threshold) {
+                    // Swiped right - previous section
+                    const sections = ['home', 'history', 'settings', 'achievements'];
+                    const currentSection = document.querySelector('.section.active').id;
+                    const currentIndex = sections.indexOf(currentSection);
+                    const prevIndex = currentIndex === 0 ? sections.length - 1 : currentIndex - 1;
+                    showSection(sections[prevIndex]);
+                }
+            }
+        }
+        
+        // Setup daily reminders
+        function setupDailyReminders() {
+            const reminderTime = localStorage.getItem('reminderTime');
+            if (reminderTime && 'Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        // Set up daily reminder (simplified version)
+                        const now = new Date();
+                        const [hours, minutes] = reminderTime.split(':');
+                        const reminderDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
+                        
+                        if (reminderDate < now) {
+                            reminderDate.setDate(reminderDate.getDate() + 1);
+                        }
+                        
+                        const timeUntilReminder = reminderDate.getTime() - now.getTime();
+                        
+                        setTimeout(() => {
+                            new Notification('🔮 Mystic Oracle', {
+                                body: 'The stars are aligned for your daily reading. Discover what the cosmos has in store for you today!',
+                                icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%234C1D95"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="30">🔮</text></svg>',
+                                tag: 'daily-reminder'
+                            });
+                        }, timeUntilReminder);
+                    }
+                });
+            }
+        }
+        
+        // Add CSS animations for better effects
+        function addCustomStyles() {
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+                
+                @keyframes pulse {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                }
+                
+                @keyframes shimmer {
+                    0% { background-position: -200px 0; }
+                    100% { background-position: 200px 0; }
+                }
+                
+                .pulse { animation: pulse 2s infinite; }
+                .shimmer {
+                    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                    background-size: 200px 100%;
+                    animation: shimmer 2s infinite;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Initialize app
+        window.onload = function() {
+            createStars();
+            createParticles();
+            loadSettings();
+            updateDailyWisdom();
+            createSoundToggle();
+            createMoonPhaseDisplay();
+            setupKeyboardNavigation();
+            setupTouchGestures();
+            setupDailyReminders();
+            addCustomStyles();
+            
+            // Load user stats
+            userStats = JSON.parse(localStorage.getItem('userStats') || '{}');
+            
+            // Welcome message for first-time users
+            if (!localStorage.getItem('hasVisited')) {
+                localStorage.setItem('hasVisited', 'true');
+                setTimeout(() => {
+                    showNotification('Welcome to Mystic Oracle! 🔮 Begin your mystical journey by selecting a category for your reading.', 'info');
+                }, 1000);
+            }
+            
+            // Check for achievements on load
+            checkAchievements();
+        };
+        
+        // Add service worker for offline support (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(error => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
