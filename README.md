@@ -88,15 +88,6 @@ open index.html
 python -m http.server 8000  # Then visit http://localhost:8000
 ```
 
-### Option 2: Use Existing Deployment
-Visit our [live demo](https://your-username.github.io/mystic-oracle) - no installation required!
-
-### Option 3: One-Click Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/your-username/mystic-oracle)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/mystic-oracle)
-
 ## 🎮 How to Use
 
 ### 🏠 Getting Started
